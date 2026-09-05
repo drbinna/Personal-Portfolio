@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Obinna Amadi</title>
+<meta name="description" content="Obinna Amadi — developer exploring how technology can amplify human creativity.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=Tinos:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #121212;
+    --page: #151815;
+    --ink: #eeeeea;
+    --ink-soft: #b8beb8;
+    --rule: #4b6d4b;
+    --rule-soft: #2a3b2a;
+    --tag: #182e19;
+    --tag-line: #23402a;
+    --serif: "Tinos", "Times New Roman", Times, serif;
+    --mono: "DM Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    --gutter: clamp(20px, 3vw, 44px);
+  }
+
+  * { box-sizing: border-box; }
+  html { background: var(--page); }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--serif);
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding: 18px var(--gutter) 0;
+    position: relative;
+    overflow-x: clip;
+  }
+  a { color: inherit; }
+  a:focus-visible { outline: 2px solid var(--rule); outline-offset: 3px; }
+  img { display: block; max-width: 100%; }
+
+  /* ---------- masthead ---------- */
+  header {
+    border-top: 1px solid var(--rule-soft);
+    padding-top: 14px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- intro ---------- */
+  .intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--gutter);
+    margin-top: 6px;
+  }
+  .intro p {
+    grid-column: 2;
+    margin: 0;
+    font-size: clamp(26px, 3.3vw, 42px);
+    line-height: 1.16;
+    letter-spacing: -0.005em;
+    max-width: 17em;
+  }
+  .intro .mark {
+    grid-column: 2;
+    width: 36px;
+    margin-top: 40px;
+    opacity: .55;
+  }
+  .intro .portrait {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    align-self: end;
+    width: clamp(160px, 20vw, 222px);
+    margin-left: clamp(0px, 6vw, 76px);
+    margin-top: 200px;
+  }
+  .intro .portrait img { aspect-ratio: 1; object-fit: cover; object-position: 50% 30%; }
+
+  /* ---------- work ---------- */
+  .work {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--gutter);
+    margin-top: 70px;
+  }
+  .work > * { grid-column: 2; }
+  .work h2 {
+    font-weight: 400;
+    font-size: clamp(20px, 2vw, 26px);
+    margin: 0 0 22px;
+  }
+  .work ol { list-style: none; margin: 0; padding: 0; }
+  .work li {
+    border-top: 1px solid var(--ink);
+    border-color: rgba(233, 218, 197, .85);
+    padding: 22px 0 32px;
+    display: grid;
+    grid-template-columns: 1fr 190px;
+    column-gap: 24px;
+    align-items: start;
+  }
+  .work li:first-child { padding-top: 22px; }
+  .work time {
+    display: block;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+  }
+  .work h3 {
+    font-weight: 400;
+    font-size: clamp(24px, 2.6vw, 34px);
+    line-height: 1.12;
+    margin: 0 0 22px;
+    max-width: 11em;
+  }
+  .work h3 a { text-decoration: none; }
+  .work h3 a:hover { text-decoration: underline; text-underline-offset: .12em; text-decoration-thickness: 1px; }
+  .work .meta { grid-column: 1; }
+  .work .thumb { grid-column: 2; grid-row: 1; }
+  .work .thumb img { width: 190px; height: 114px; object-fit: cover; }
+  .tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-soft);
+    background: var(--tag);
+    border: 1px solid var(--tag-line);
+    padding: 9px 10px;
+    text-decoration: none;
+  }
+  .tag:hover { color: var(--ink); border-color: var(--rule); }
+
+  /* ---------- footer ---------- */
+  footer {
+    margin-top: 40px;
+    border-top: 1px solid var(--rule);
+    padding: 22px 0 130px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: var(--gutter);
+    font-family: var(--mono);
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--ink-soft);
+    position: relative;
+  }
+  footer address { font-style: normal; }
+  footer ul { list-style: none; margin: 0; padding: 0; }
+  footer li { margin-bottom: 4px; }
+  footer a { text-underline-offset: .2em; }
+  footer .leaf {
+    position: absolute;
+    right: -8px;
+    bottom: 0;
+    width: clamp(180px, 25vw, 300px);
+    opacity: .7;
+    pointer-events: none;
+  }
+
+  /* ---------- tablet ---------- */
+  @media (max-width: 900px) {
+    .intro { grid-template-columns: 1fr; }
+    .intro p { grid-column: 1; margin-top: 28px; }
+    .intro .mark { grid-column: 1; }
+    .intro .portrait { grid-column: 1; grid-row: auto; margin: 36px auto 0; width: 170px; }
+    .work { grid-template-columns: 1fr; margin-top: 60px; }
+    .work > * { grid-column: 1; }
+    .work li { padding-bottom: 36px; }
+    footer { grid-template-columns: 1fr 1fr; padding-bottom: 150px; }
+  }
+
+  /* ---------- mobile ---------- */
+  @media (max-width: 560px) {
+    .work li { grid-template-columns: 1fr; row-gap: 22px; }
+    .work .thumb { grid-column: 1; grid-row: 1; }
+    .work .thumb img { width: 100%; max-width: 190px; height: auto; aspect-ratio: 190 / 114; margin-inline: auto; }
+    .work .meta { grid-row: 2; }
+    .intro .portrait { margin-top: 24px; }
+    footer { grid-template-columns: 1fr; row-gap: 22px; }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    a { transition: color .15s, border-color .15s; }
+  }
+</style>
+</head>
+<body>
+
+<header>Obinna Amadi</header>
+
+<section class="intro" aria-label="About">
+  <p>Obinna is a developer who believes great tools should feel as intuitive as a brushstroke. From art to serverless infrastructure, his work explores how technology can amplify human creativity. He's drawn to design-forward companies that grow alongside their people where building products and building skills go hand in hand.</p>
+  <img class="mark" src="assets/leaf-small.png" alt="">
+  <figure class="portrait">
+    <img src="assets/portrait.jpg" alt="Portrait of Obinna Amadi in a dark suit">
+  </figure>
+</section>
+
+<section class="work" aria-labelledby="work-heading">
+  <h2 id="work-heading">Welcome To The Intersection</h2>
+  <ol>
+    <li>
+      <div class="meta">
+        <time datetime="2025-04-03">04.03.2025</time>
+        <h3><a href="#">Transcripts, Refined</a></h3>
+        <a class="tag" href="#">Explore Transcript formatter tool</a>
+      </div>
+      <a class="thumb" href="#" aria-hidden="true" tabindex="-1"><img src="assets/transcripts.jpg" alt=""></a>
+    </li>
+    <li>
+      <div class="meta">
+        <time datetime="2025-03-22">03.22.2025</time>
+        <h3><a href="#">Memory of the Game</a></h3>
+        <a class="tag" href="#">Retrieval augmented generation</a>
+      </div>
+      <a class="thumb" href="#" aria-hidden="true" tabindex="-1"><img src="assets/memory.jpg" alt=""></a>
+    </li>
+    <li>
+      <div class="meta">
+        <time datetime="2025-02-07">02.07.2025</time>
+        <h3><a href="#">Lost in Vector Space</a></h3>
+        <a class="tag" href="#">Fine-tuned embedding model, 12 downloads</a>
+      </div>
+      <a class="thumb" href="#" aria-hidden="true" tabindex="-1"><img src="assets/vector.jpg" alt=""></a>
+    </li>
+    <li>
+      <div class="meta">
+        <time datetime="2024-12-10">12.10.2024</time>
+        <h3><a href="#">The Compound Effect of Not Quitting</a></h3>
+        <a class="tag" href="#">How I am growing my newsletter</a>
+      </div>
+      <a class="thumb" href="#" aria-hidden="true" tabindex="-1"><img src="assets/compound.jpg" alt=""></a>
+    </li>
+    <li>
+      <div class="meta">
+        <time datetime="2024-08-02">08.02.2024</time>
+        <h3><a href="#">Compliments on Demand</a></h3>
+        <a class="tag" href="#">Compliment generator application</a>
+      </div>
+      <a class="thumb" href="#" aria-hidden="true" tabindex="-1"><img src="assets/compliments.jpg" alt=""></a>
+    </li>
+    <li>
+      <div class="meta">
+        <time datetime="2024-05-15">05.15.2024</time>
+        <h3><a href="#">The Anatomy of a Purchase Decision</a></h3>
+        <a class="tag" href="#">Neural network</a>
+      </div>
+      <a class="thumb" href="#" aria-hidden="true" tabindex="-1"><img src="assets/anatomy.jpg" alt=""></a>
+    </li>
+  </ol>
+</section>
+
+<footer>
+  <address>
+    Obinna (Obi) Amadi<br>
+    Copyright © 2026<br>
+    <a href="tel:+19183701689">(918) 370-1689</a>
+  </address>
+  <ul>
+    <li><a href="#">LinkedIn</a></li>
+    <li><a href="#">X</a></li>
+    <li><a href="#">Github</a></li>
+    <li><a href="#">Hugging Face</a></li>
+  </ul>
+  <img class="leaf" src="assets/leaf-large.png" alt="">
+</footer>
+
+</body>
+</html>
