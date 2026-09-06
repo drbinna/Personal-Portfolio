@@ -52,44 +52,30 @@
   }
 
   /* ---------- intro ---------- */
-  .intro {
+  .layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: var(--gutter);
-    margin-top: 6px;
+    align-items: start;
   }
+  .side { align-self: stretch; }
+  .portrait {
+    position: sticky;
+    top: clamp(120px, 28vh, 260px);
+    width: clamp(160px, 20vw, 222px);
+    margin: 200px 0 0 clamp(0px, 6vw, 76px);
+  }
+  .portrait img { aspect-ratio: 1; object-fit: cover; object-position: 50% 30%; }
+  .intro { margin-top: 6px; }
   .intro p {
-    grid-column: 2;
     margin: 0;
     font-size: clamp(26px, 3.3vw, 42px);
     line-height: 1.16;
     letter-spacing: -0.005em;
     max-width: 17em;
   }
-  .intro .mark {
-    grid-column: 2;
-    width: 36px;
-    margin-top: 40px;
-    opacity: .55;
-  }
-  .intro .portrait {
-    grid-column: 1;
-    grid-row: 1 / span 3;
-    align-self: end;
-    width: clamp(160px, 20vw, 222px);
-    margin-left: clamp(0px, 6vw, 76px);
-    margin-top: 200px;
-  }
-  .intro .portrait img { aspect-ratio: 1; object-fit: cover; object-position: 50% 30%; }
-
-  /* ---------- work ---------- */
-  .work {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: var(--gutter);
-    margin-top: 70px;
-  }
-  .work > * { grid-column: 2; }
+  .intro .mark { width: 36px; margin-top: 40px; opacity: .55; }
+  .work { margin-top: 70px; }
   .work h2 {
     font-weight: 400;
     font-size: clamp(20px, 2vw, 26px);
@@ -166,23 +152,23 @@
 
   /* ---------- tablet ---------- */
   @media (max-width: 900px) {
-    .intro { grid-template-columns: 1fr; }
-    .intro p { grid-column: 1; margin-top: 28px; }
-    .intro .mark { grid-column: 1; }
-    .intro .portrait { grid-column: 1; grid-row: auto; margin: 36px auto 0; width: 170px; }
-    .work { grid-template-columns: 1fr; margin-top: 60px; }
-    .work > * { grid-column: 1; }
+    .layout { grid-template-columns: 1fr; }
+    .content { display: contents; }
+    .intro { order: 1; }
+    .side { order: 2; }
+    .work { order: 3; }
+    .portrait { position: static; margin: 36px auto 0; width: 170px; }
+    .intro p { margin-top: 28px; }
+    .work { margin-top: 60px; }
     .work li { padding-bottom: 36px; }
     footer { grid-template-columns: 1fr 1fr; padding-bottom: 150px; }
   }
-
-  /* ---------- mobile ---------- */
   @media (max-width: 560px) {
     .work li { grid-template-columns: 1fr; row-gap: 22px; }
     .work .thumb { grid-column: 1; grid-row: 1; }
     .work .thumb img { width: 100%; max-width: 190px; height: auto; aspect-ratio: 190 / 114; margin-inline: auto; }
     .work .meta { grid-row: 2; }
-    .intro .portrait { margin-top: 24px; }
+    .portrait { margin-top: 24px; }
     footer { grid-template-columns: 1fr; row-gap: 22px; }
   }
 
@@ -195,12 +181,16 @@
 
 <header>Obinna Amadi</header>
 
-<section class="intro" aria-label="About">
-  <p>Obinna is a developer who believes great tools should feel as intuitive as a brushstroke. From art to serverless infrastructure, his work explores how technology can amplify human creativity. He's drawn to design-forward companies that grow alongside their people where building products and building skills go hand in hand.</p>
-  <img class="mark" src="assets/leaf-small.png" alt="">
+<main class="layout">
+<aside class="side">
   <figure class="portrait">
     <img src="assets/portrait.jpg" alt="Portrait of Obinna Amadi in a dark suit">
   </figure>
+</aside>
+<div class="content">
+<section class="intro" aria-label="About">
+  <p>Obinna is a developer who believes great tools should feel as intuitive as a brushstroke. From art to serverless infrastructure, his work explores how technology can amplify human creativity. He's drawn to design-forward companies that grow alongside their people where building products and building skills go hand in hand.</p>
+  <img class="mark" src="assets/leaf-small.png" alt="">
 </section>
 
 <section class="work" aria-labelledby="work-heading">
@@ -256,7 +246,8 @@
     </li>
   </ol>
 </section>
-
+</div>
+</main>
 <footer>
   <address>
     Obinna (Obi) Amadi<br>
